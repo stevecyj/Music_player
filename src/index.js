@@ -109,24 +109,24 @@ function onPlayerStateChange(e) {
 }
 
 // 搜尋功能
-function searchSong() {
-  axios
-    .get('https://www.googleapis.com/youtube/v3/search', {
-      params: {
-        part: 'snippet', // 必填，把需要的資訊列出來
-        maxResults: 10, // 預設為五筆資料，可以設定1~50
-        q: `${inputInfo.value}`,
-        key: process.env.KEY,
-      },
-    })
-    .then((res) => {
-      songsList = res.data.items;
-      showSearchSongList();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+// function searchSong() {
+//   axios
+//     .get('https://www.googleapis.com/youtube/v3/search', {
+//       params: {
+//         part: 'snippet', // 必填，把需要的資訊列出來
+//         maxResults: 10, // 預設為五筆資料，可以設定1~50
+//         q: `${inputInfo.value}`,
+//         key: process.env.KEY,
+//       },
+//     })
+//     .then((res) => {
+//       songsList = res.data.items;
+//       showSearchSongList();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
 // 顯示搜尋歌單
 function showSearchSongList() {
   let result = '';
