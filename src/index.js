@@ -145,7 +145,8 @@ function getSongData() {
   axios
     .get('https://mighty-eyrie-61795.herokuapp.com/youtube/playListItems')
     .then((res) => {
-      songsList = res.data.items;
+      songsList = res.data[0].items;
+
       showSongList();
       showSongImg();
       init();
@@ -168,6 +169,7 @@ function showSongList() {
   songsList.forEach((i, index) => {
     result += `<li><a class="songList dropdown-item d-inline-block text-truncate" data-index=${index} data-vid=${i.snippet.resourceId.videoId} href="#">${i.snippet.title}</a></li>`;
   });
+  // console.log(result);
   playlists.innerHTML = result;
   songListLi = document.querySelectorAll('.songList');
 }
