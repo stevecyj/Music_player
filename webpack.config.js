@@ -18,11 +18,11 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
       {
@@ -31,11 +31,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     // 生成html檔案到輸入目錄
@@ -44,16 +44,16 @@ module.exports = {
       template: './src/index.html',
       // 在目標目錄下生成目標檔案
       filename: './index.html',
-      chunks: ['a', 'b'] // 這個引數配合entry可以將打包的模組以<script></script>的形式載入到html檔案中
+      chunks: ['a', 'b'], // 這個引數配合entry可以將打包的模組以<script></script>的形式載入到html檔案中
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
-    open:true
-  }
+    port: 8080,
+    open: true,
+  },
 };
